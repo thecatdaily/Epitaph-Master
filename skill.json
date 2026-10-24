@@ -2,7 +2,7 @@
   "name": "epitaph-master",
   "displayName": "贞珉录 · 传统墓碑碑文与墓志铭撰写顾问",
   "version": "1.0.0",
-  "description": "专为西南与华南传统墓葬堪舆与碑刻定制，支持白话生平模糊转文言、五步法经典墓志铭、黄道合吉中榜及24副古联轮换。",
+  "description": "专为西南与华南传统墓葬堪舆与碑刻定制，支持白话生平模糊转文言、五步法经典墓志铭、黄道合吉中榜及37副古联轮换。",
   "author": "YourName",
   "main": "prompts/system_prompt.md",
   "tags": [
