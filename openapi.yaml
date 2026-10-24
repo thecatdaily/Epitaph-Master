@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: 传统墓碑碑文与墓志铭智能生成插件
+  description: 专用于西南与华南传统墓葬规制，依据逝者生卒、世系、生平白话生成符合五步法的墓志铭、中榜大字及合吉对联。
+  version: 1.0.0
+servers:
+  - url: https://api.openai.com/v1
+paths:
+  /generate-epitaph:
+    post:
+      summary: 生成传统墓碑文与墓志铭
+      operationId: generateEpitaph
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - gender_role
+                - relation
+                - raw_bio
+              properties:
+                name:
+                  type: string
+                  description: 逝者姓名（如：罗志清）
+                gender_role:
+                  type: string
+                  description: 身份规制（如：显考、先考、显妣、先妣、慈父、慈母）
+                birth_date:
+                  type: string
+                  description: 出生公历或农历时间及出生时辰（如：1948-11-27 寅时）
+                death_date:
+                  type: string
+                  description: 逝世公历或农历时间及逝世时辰（如：2026-10-15 巳时）
+                age:
+                  type: integer
+                  description: 享年虚岁（如：79）
+                relation:
+                  type: string
+                  description: 立碑人与逝者关系及姓名（如：孝男罗家明，决定正文自称）
+                ancestor_info:
+                  type: string
+                  description: 籍贯与世系渊源（如：广西河池白洞村，盛发公之孙）
+                family_info:
+                  type: string
+                  description: 配偶与子孙概况（如：原配李氏，生一男一女，孙曾绕膝）
+                raw_bio:
+                  type: string
+                  description: 白话文生平事迹、性格、爱好、轶事与贡献
+                tomb_info:
+                  type: string
+                  description: 安葬地名与堪舆山向（如：坡腾山之阳，乾山巽向兼亥巳分金）
+                date_format_style:
+                  type: string
+                  enum: [lunar, ganzhi]
+                  default: lunar
+                  description: 碑文中生卒日期显示格式（lunar: 年份+农历格式；ganzhi: 纯干支八字格式）
+      responses:
+        '200':
+          description: 成功生成符合规制的碑文套件
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  zhongbang:
+                    type: string
+                    description: 中榜大字及字数吉凶核算
+                  couplet:
+                    type: string
+                    description: 横批及上下楹联
+                  epitaph_body:
+                    type: string
+                    description: 完整五步法文言墓志铭正文
+                  erected_signature:
+                    type: string
+                    description: 立碑人古式自称与吉日落款

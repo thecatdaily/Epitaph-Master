@@ -1,0 +1,39 @@
+{
+  "name": "epitaph-master",
+  "displayName": "贞珉录 · 传统墓碑碑文与墓志铭撰写顾问",
+  "version": "1.0.0",
+  "description": "专为西南与华南传统墓葬堪舆与碑刻定制，支持白话生平模糊转文言、五步法经典墓志铭、黄道合吉中榜及24副古联轮换。",
+  "author": "YourName",
+  "main": "prompts/system_prompt.md",
+  "tags": [
+    "epitaph",
+    "traditional-culture",
+    "chinese-classical-literature",
+    "fengshui",
+    "coze",
+    "workbuddy",
+    "codex"
+  ],
+  "inputs": [
+    {
+      "name": "逝者姓名与称谓",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "生卒时间与时辰",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "立碑人关系与姓名",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "白话生平与轶事",
+      "required": true,
+      "type": "string"
+    }
+  ]
+}
